@@ -1,0 +1,23 @@
+os: unstable
+
+install:
+  - choco install -y InnoSetup
+  - choco install -y Python
+  - set PATH=C:\Program Files (x86)\Inno Setup 5;%PATH%
+
+build_script:
+  - echo Building..
+  - mkdir dist
+  - echo Done!
+  - dir
+
+artifacts:
+  - path: dist\*.exe
+    name: installer
+
+deploy:
+  provider: Environment
+  name: GitHub
+  on:
+    branch: master
+    appveyor_repo_tag: true
