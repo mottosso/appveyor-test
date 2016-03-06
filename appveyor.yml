@@ -2,7 +2,7 @@ os: unstable
 
 install:
   - choco install -y InnoSetup
-  - choco install -y Python
+  - choco install python -version 2.7.10
   - set PATH=C:\Program Files (x86)\Inno Setup 5;%PATH%
 
 build_script:
